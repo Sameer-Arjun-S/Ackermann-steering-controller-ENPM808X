@@ -1,1 +1,0 @@
-/usr/bin/c++ --static CMakeFiles/shell-app.dir/main.cpp.o CMakeFiles/shell-app.dir/PIDController.cpp.o CMakeFiles/shell-app.dir/RobotModel.cpp.o CMakeFiles/shell-app.dir/RobotSimulation.cpp.o -o shell-app  ../libs/lib1/libmyLib1.a ../libs/lib2/libmyLib2.a 
