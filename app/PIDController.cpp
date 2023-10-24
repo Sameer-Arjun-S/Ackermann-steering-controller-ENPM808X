@@ -1,20 +1,29 @@
 /**
  * @file PIDController.cpp
  * @author Driver - Manav Bhavesh Nagda
-           Navigator - Sameer Arjun Satheesh
-           Design Keeper - Ishaan Samir Parikh
- * @brief Represents a class to implement PID controller for Ackermann Kinematic model
+ *         Navigator - Sameer Arjun Satheesh
+ *         Design Keeper - Ishaan Samir Parikh
+ * @brief Implementation of a PID controller for Ackermann Kinematic model.
  * @version 0.1
- * 
- * @copyright Copyright (c) 2023
- * 
+ * @date 2023
  */
+
 #include "PIDController.hpp"
 #include <iostream>
 #include <numeric>
 #include <cmath>
-#define M_PI 3.14159265358979323846
 
+/**
+ * @brief Constructor for the PIDController class.
+ * 
+ * @param velP The proportional constant for velocity control.
+ * @param velI The integral constant for velocity control.
+ * @param velD The derivative constant for velocity control.
+ * @param dt The time step.
+ * @param headP The proportional constant for heading control.
+ * @param headI The integral constant for heading control.
+ * @param headD The derivative constant for heading control.
+ */
 PIDController::PIDController(double velP, double velI, double velD, double dt,
                              double headP, double headI, double headD) {
     velKp = velP;
@@ -26,6 +35,11 @@ PIDController::PIDController(double velP, double velI, double velD, double dt,
     headKd = headD;
 }
 
+/**
+ * @brief Computes the PID control outputs for velocity and heading.
+ * 
+ * @return A vector containing the computed PID values for velocity and heading.
+ */
 std::vector<double> PIDController::computePID() {
     double Pvel, Ivel, Dvel;
     double Phead, Ihead, Dhead;
@@ -61,34 +75,77 @@ std::vector<double> PIDController::computePID() {
     return pidOut;
 }
 
+/**
+ * @brief Retrieves the velocity proportional constant (Kp).
+ * 
+ * @return The velocity proportional constant.
+ */
 double PIDController::getVelocityProportionalConstant() {
     return velKp;
 }
 
+/**
+ * @brief Retrieves the velocity integral constant (Ki).
+ * 
+ * @return The velocity integral constant.
+ */
 double PIDController::getVelocityIntegralConstant() {
     return velKi;
 }
 
+/**
+ * @brief Retrieves the velocity derivative constant (Kd).
+ * 
+ * @return The velocity derivative constant.
+ */
 double PIDController::getVelocityDerivativeConstant() {
     return velKd;
 }
 
+/**
+ * @brief Retrieves the time step (deltaT).
+ * 
+ * @return The time step.
+ */
 double PIDController::getDeltaTime() {
     return deltaT;
 }
 
+/**
+ * @brief Retrieves the heading proportional constant (Kp).
+ * 
+ * @return The heading proportional constant.
+ */
 double PIDController::getHeadingProportionalConstant() {
     return headKp;
 }
 
+/**
+ * @brief Retrieves the heading integral constant (Ki).
+ * 
+ * @return The heading integral constant.
+ */
 double PIDController::getHeadingIntegralConstant() {
     return headKi;
 }
 
+/**
+ * @brief Retrieves the heading derivative constant (Kd).
+ * 
+ * @return The heading derivative constant.
+ */
 double PIDController::getHeadingDerivativeConstant() {
     return headKd;
 }
 
+/**
+ * @brief Computes and stores the velocity and heading errors.
+ * 
+ * @param targetVelocity The desired velocity.
+ * @param currentVelocity The current velocity.
+ * @param targetHeading The desired heading (in radians).
+ * @param currentHeading The current heading (in radians).
+ */
 void PIDController::computeErrors(double targetVelocity, double currentVelocity, double targetHeading, double currentHeading) {
     double velocityError = targetVelocity - currentVelocity;
     std::cout << "Velocity Error: " << velocityError << "\n";
@@ -99,3 +156,4 @@ void PIDController::computeErrors(double targetVelocity, double currentVelocity,
     velocityErrors.push_back(velocityError);
     headingErrors.push_back(headingError);
 }
+
