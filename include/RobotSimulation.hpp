@@ -10,11 +10,20 @@ public:
                     double velP, double velI, double velD, double deltaT,
                     double headP, double headI, double headD);
 
-    void runSimulation();
+    void runSimulation(double targetHeading,double targetVelocity);
+
+    double getFinalX() const;
+    double getFinalY() const;
+    double getFinalTheta() const;
+    double getFinalVelocity() const;
 
 private:
     RobotModel robot;
     PIDController controller;
+    double finalX;
+    double finalY;
+    double finalTheta;
+    double finalVelocity;
 };
 
 #endif // ROBOT_SIMULATION_HPP

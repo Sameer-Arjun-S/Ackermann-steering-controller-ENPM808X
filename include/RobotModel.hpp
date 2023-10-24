@@ -7,7 +7,7 @@ public:
 
     void setInitialState(double x, double y, double theta, double velocity);
     void updateState(double steeringAngle, double dt);
-    void calculateSteeringAndDriveVelocities(double desiredTurningRadius, double& steeringAngle, double& leftWheelVelocity, double& rightWheelVelocity);
+    void calculateSteeringAndDriveVelocities(double desiredTurningRadius, double& steeringAngle, double& velocity_);
     void getState(double& x, double& y, double& theta, double& velocity);
 
 private:
@@ -19,6 +19,8 @@ private:
     double y_;
     double theta_;
     double velocity_;
+    double leftWheelVelocity ;
+    double rightWheelVelocity ;
 };
 
 #endif // ROBOT_MODEL_HPP
