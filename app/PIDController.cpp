@@ -17,13 +17,13 @@
 
 PIDController::PIDController(double velP, double velI, double velD, double dt,
                              double headP, double headI, double headD) {
-    velKp = 1.0;
-    velKi = 0.5;
-    velKd = 0.3;
-    deltaT = 0.1;
-    headKp = 1.0;
-    headKi = 0.5;
-    headKd = 0.3;
+    velKp = velP;
+    velKi = velI;
+    velKd = velD;
+    deltaT = dt;
+    headKp = headP;
+    headKi = headI;
+    headKd = headD;
 }
 
 std::vector<double> PIDController::computePID() {
