@@ -7,6 +7,11 @@
  * @version 0.1
  * @date 2023
  */
+#include "PIDController.hpp"
+#include <iostream>
+#include <numeric>
+#include <cmath>
+#define M_PI 3.14159265358979323846
 
 #include "PIDController.hpp"
 #include <iostream>
