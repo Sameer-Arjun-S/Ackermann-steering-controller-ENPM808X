@@ -1,3 +1,16 @@
+/**
+ * @file robot.cpp
+ * @author Driver - Ishaan Samir Parikh
+           Navigator - Manav Bhavesh Nagda
+ * @brief Represents a class for simulating a robot's control system.
+ *
+ * The `RobotSimulation` class allows navigation and control of a robot's motion. It integrates
+ * the robot's physical behavior with a PID controller to achieve target heading and velocity.
+ * @version 0.1
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #include "RobotSimulation.hpp"
 #include <iostream>
 #include <cmath>
