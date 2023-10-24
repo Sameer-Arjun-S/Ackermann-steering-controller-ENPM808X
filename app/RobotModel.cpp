@@ -79,8 +79,8 @@ void RobotModel::calculateSteeringAndDriveVelocities(double desiredTurningRadius
 
     // Calculate left and right wheel velocities for the Ackermann model.
     double turningRadius = wheelbase_ / std::tan(steeringAngle);
-    leftWheelVelocity = velocity_ * (turningRadius - (trackWidth_ / 2.0)) / turningRadius;
-    rightWheelVelocity = velocity_ * (turningRadius + (trackWidth_ / 2.0)) / turningRadius;
+    double leftWheelVelocity = velocity_ * (turningRadius - (trackWidth_ / 2.0)) / turningRadius;
+    double rightWheelVelocity = velocity_ * (turningRadius + (trackWidth_ / 2.0)) / turningRadius;
 }
 
 /**

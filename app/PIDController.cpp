@@ -47,17 +47,22 @@ std::vector<double> PIDController::computePID() {
 
     if (velocityErrors.empty() || headingErrors.empty()) return pidOut;
 
+    // Calculate the proportional term for velocity control.
     Pvel = velKp * velocityErrors.back();
     double IvelSum = std::accumulate(velocityErrors.begin(), velocityErrors.end(), 0.0);
+    // Calculate the integral term for velocity control.
     Ivel = velKi * IvelSum;
 
     if (velocityErrors.size() < 2)
         Dvel = 0;
     else
+        // Calculate the derivative term for velocity control.
         Dvel = velKd * ((velocityErrors.back() - velocityErrors[velocityErrors.size() - 2]) / deltaT);
 
+    // Calculate the overall PID output for velocity control.
     double velPIDOut = Pvel + Ivel + Dvel;
 
+    // Repeat the same process for heading control.
     Phead = headKp * headingErrors.back();
     double IheadSum = std::accumulate(headingErrors.begin(), headingErrors.end(), 0.0);
     Ihead = headKi * IheadSum;
@@ -69,6 +74,7 @@ std::vector<double> PIDController::computePID() {
 
     double headPIDOut = Phead + Ihead + Dhead;
 
+    // Store the computed PID values in the output vector.
     pidOut.push_back(velPIDOut);
     pidOut.push_back(headPIDOut);
 
@@ -138,10 +144,20 @@ double PIDController::getHeadingDerivativeConstant() {
     return headKd;
 }
 
+/**
+ * @brief Retrieves the vector of velocity errors.
+ * 
+ * @return The vector containing velocity errors.
+ */
 const std::vector<double>& PIDController::getVelocityErrors() const {
     return velocityErrors;
 }
 
+/**
+ * @brief Retrieves the vector of heading errors.
+ * 
+ * @return The vector containing heading errors.
+ */
 const std::vector<double>& PIDController::getHeadingErrors() const {
     return headingErrors;
 }
@@ -161,7 +177,7 @@ void PIDController::computeErrors(double targetVelocity, double currentVelocity,
     double headingError = targetHeading - currentHeading;
     std::cout << "Heading Error: " << headingError * 180 / M_PI;
 
+    // Store the computed errors in the respective vectors.
     velocityErrors.push_back(velocityError);
     headingErrors.push_back(headingError);
 }
-
