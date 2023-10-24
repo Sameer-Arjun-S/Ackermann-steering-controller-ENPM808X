@@ -2,6 +2,7 @@
  * @file RobotSimulation.cpp
  * @author Driver - Ishaan Samir Parikh
            Navigator - Manav Bhavesh Nagda
+           Design Keeper - Sameer Arjun Sateesh
  * @brief Represents a class for simulating a robot's control system.
  *
  * The `RobotSimulation` class allows navigation and control of a robot's motion. It integrates
