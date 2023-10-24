@@ -1,13 +1,13 @@
 # Ackermann-steering-controller-ENPM808X
 Software development for Ackermann steering control mechanism using a PID controller for ENPM808X midterm project
 ![CICD Workflow status](https://github.com/Sameer-Arjun-S/Ackermann-steering-controller-ENPM808X/tree/development/actions/workflows/run-unit-test-and-upload-codecov.yml/badge.svg)
-
+[![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 [![codecov](https://codecov.io/gh/Sameer-Arjun-S/Ackermann-steering-controller-ENPM808X/tree/development/graph/badge.svg)](https://codecov.io/gh/Sameer-Arjun-S/Ackermann-steering-controller-ENPM808X)
 
 # Authors:
 ### Sameer Arjun S 
 ### Manav Bhavesh Nagda
-### Ishaan Samir Parik 
+### Ishaan Samir Parikh 
 
 
 
