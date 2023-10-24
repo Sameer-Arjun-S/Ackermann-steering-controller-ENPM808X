@@ -71,10 +71,9 @@ void RobotModel::updateState(double steeringAngle, double dt) {
  * 
  * @param desiredTurningRadius The desired turning radius for the robot's path.
  * @param steeringAngle The calculated steering angle (output).
- * @param leftWheelVelocity The calculated left wheel velocity (output).
- * @param rightWheelVelocity The calculated right wheel velocity (output).
+ * @param velocity_ The calculated velocity (output).
  */
-void RobotModel::calculateSteeringAndDriveVelocities(double desiredTurningRadius, double& steeringAngle, double& leftWheelVelocity, double& rightWheelVelocity) {
+void RobotModel::calculateSteeringAndDriveVelocities(double desiredTurningRadius, double& steeringAngle, double& velocity) {
     // Calculate the steering angle based on the desired turning radius and Ackermann kinematic model.
     steeringAngle = std::atan(wheelbase_ / desiredTurningRadius);
 

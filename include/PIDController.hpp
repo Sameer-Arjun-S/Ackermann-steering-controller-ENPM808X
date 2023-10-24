@@ -17,6 +17,8 @@ public:
     double getHeadingProportionalConstant();
     double getHeadingIntegralConstant();
     double getHeadingDerivativeConstant();
+    const std::vector<double>& getVelocityErrors() const;
+    const std::vector<double>& getHeadingErrors() const;
     void computeErrors(double targetVelocity, double currentVelocity, double targetHeading, double currentHeading);
 
 private:

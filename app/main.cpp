@@ -19,7 +19,7 @@ int main() {
     RobotSimulation simulation(0.5, 1.0, M_PI / 4.0, 1.0, 0.1, 0.01, 0.1, 1.0, 0.1, 0.01);
 
     //Running the simulation
-    simulation.runSimulation();
+    simulation.runSimulation(0,0);
 
     return 0;
 }
