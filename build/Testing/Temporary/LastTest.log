@@ -1,0 +1,185 @@
+Start testing: Oct 24 15:53 EDT
+----------------------------------------------------------
+1/7 Testing: PIDControllerTest.TestVelocityProportionalConstant
+1/7 Test: PIDControllerTest.TestVelocityProportionalConstant
+Command: "/home/sas/Ackermann-steering-controller-ENPM808X/build/test/cpp-test" "--gtest_filter=PIDControllerTest.TestVelocityProportionalConstant" "--gtest_also_run_disabled_tests"
+Directory: /home/sas/Ackermann-steering-controller-ENPM808X/build/test
+"PIDControllerTest.TestVelocityProportionalConstant" start time: Oct 24 15:53 EDT
+Output:
+----------------------------------------------------------
+Note: Google Test filter = PIDControllerTest.TestVelocityProportionalConstant
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PIDControllerTest
+[ RUN      ] PIDControllerTest.TestVelocityProportionalConstant
+[       OK ] PIDControllerTest.TestVelocityProportionalConstant (0 ms)
+[----------] 1 test from PIDControllerTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"PIDControllerTest.TestVelocityProportionalConstant" end time: Oct 24 15:53 EDT
+"PIDControllerTest.TestVelocityProportionalConstant" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/7 Testing: PIDControllerTest.TestVelocityIntegralConstant
+2/7 Test: PIDControllerTest.TestVelocityIntegralConstant
+Command: "/home/sas/Ackermann-steering-controller-ENPM808X/build/test/cpp-test" "--gtest_filter=PIDControllerTest.TestVelocityIntegralConstant" "--gtest_also_run_disabled_tests"
+Directory: /home/sas/Ackermann-steering-controller-ENPM808X/build/test
+"PIDControllerTest.TestVelocityIntegralConstant" start time: Oct 24 15:53 EDT
+Output:
+----------------------------------------------------------
+Note: Google Test filter = PIDControllerTest.TestVelocityIntegralConstant
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PIDControllerTest
+[ RUN      ] PIDControllerTest.TestVelocityIntegralConstant
+[       OK ] PIDControllerTest.TestVelocityIntegralConstant (0 ms)
+[----------] 1 test from PIDControllerTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"PIDControllerTest.TestVelocityIntegralConstant" end time: Oct 24 15:53 EDT
+"PIDControllerTest.TestVelocityIntegralConstant" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/7 Testing: PIDControllerTest.TestVelocityDerivativeConstant
+3/7 Test: PIDControllerTest.TestVelocityDerivativeConstant
+Command: "/home/sas/Ackermann-steering-controller-ENPM808X/build/test/cpp-test" "--gtest_filter=PIDControllerTest.TestVelocityDerivativeConstant" "--gtest_also_run_disabled_tests"
+Directory: /home/sas/Ackermann-steering-controller-ENPM808X/build/test
+"PIDControllerTest.TestVelocityDerivativeConstant" start time: Oct 24 15:53 EDT
+Output:
+----------------------------------------------------------
+Note: Google Test filter = PIDControllerTest.TestVelocityDerivativeConstant
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PIDControllerTest
+[ RUN      ] PIDControllerTest.TestVelocityDerivativeConstant
+[       OK ] PIDControllerTest.TestVelocityDerivativeConstant (0 ms)
+[----------] 1 test from PIDControllerTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"PIDControllerTest.TestVelocityDerivativeConstant" end time: Oct 24 15:53 EDT
+"PIDControllerTest.TestVelocityDerivativeConstant" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/7 Testing: PIDControllerTest.TestDeltaTime
+4/7 Test: PIDControllerTest.TestDeltaTime
+Command: "/home/sas/Ackermann-steering-controller-ENPM808X/build/test/cpp-test" "--gtest_filter=PIDControllerTest.TestDeltaTime" "--gtest_also_run_disabled_tests"
+Directory: /home/sas/Ackermann-steering-controller-ENPM808X/build/test
+"PIDControllerTest.TestDeltaTime" start time: Oct 24 15:53 EDT
+Output:
+----------------------------------------------------------
+Note: Google Test filter = PIDControllerTest.TestDeltaTime
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PIDControllerTest
+[ RUN      ] PIDControllerTest.TestDeltaTime
+[       OK ] PIDControllerTest.TestDeltaTime (0 ms)
+[----------] 1 test from PIDControllerTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"PIDControllerTest.TestDeltaTime" end time: Oct 24 15:53 EDT
+"PIDControllerTest.TestDeltaTime" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/7 Testing: PIDControllerTest.TestHeadingProportionalConstant
+5/7 Test: PIDControllerTest.TestHeadingProportionalConstant
+Command: "/home/sas/Ackermann-steering-controller-ENPM808X/build/test/cpp-test" "--gtest_filter=PIDControllerTest.TestHeadingProportionalConstant" "--gtest_also_run_disabled_tests"
+Directory: /home/sas/Ackermann-steering-controller-ENPM808X/build/test
+"PIDControllerTest.TestHeadingProportionalConstant" start time: Oct 24 15:53 EDT
+Output:
+----------------------------------------------------------
+Note: Google Test filter = PIDControllerTest.TestHeadingProportionalConstant
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PIDControllerTest
+[ RUN      ] PIDControllerTest.TestHeadingProportionalConstant
+[       OK ] PIDControllerTest.TestHeadingProportionalConstant (0 ms)
+[----------] 1 test from PIDControllerTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"PIDControllerTest.TestHeadingProportionalConstant" end time: Oct 24 15:53 EDT
+"PIDControllerTest.TestHeadingProportionalConstant" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/7 Testing: PIDControllerTest.TestHeadingIntegralConstant
+6/7 Test: PIDControllerTest.TestHeadingIntegralConstant
+Command: "/home/sas/Ackermann-steering-controller-ENPM808X/build/test/cpp-test" "--gtest_filter=PIDControllerTest.TestHeadingIntegralConstant" "--gtest_also_run_disabled_tests"
+Directory: /home/sas/Ackermann-steering-controller-ENPM808X/build/test
+"PIDControllerTest.TestHeadingIntegralConstant" start time: Oct 24 15:53 EDT
+Output:
+----------------------------------------------------------
+Note: Google Test filter = PIDControllerTest.TestHeadingIntegralConstant
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PIDControllerTest
+[ RUN      ] PIDControllerTest.TestHeadingIntegralConstant
+[       OK ] PIDControllerTest.TestHeadingIntegralConstant (0 ms)
+[----------] 1 test from PIDControllerTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"PIDControllerTest.TestHeadingIntegralConstant" end time: Oct 24 15:53 EDT
+"PIDControllerTest.TestHeadingIntegralConstant" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/7 Testing: PIDControllerTest.TestHeadingDerivativeConstant
+7/7 Test: PIDControllerTest.TestHeadingDerivativeConstant
+Command: "/home/sas/Ackermann-steering-controller-ENPM808X/build/test/cpp-test" "--gtest_filter=PIDControllerTest.TestHeadingDerivativeConstant" "--gtest_also_run_disabled_tests"
+Directory: /home/sas/Ackermann-steering-controller-ENPM808X/build/test
+"PIDControllerTest.TestHeadingDerivativeConstant" start time: Oct 24 15:53 EDT
+Output:
+----------------------------------------------------------
+Note: Google Test filter = PIDControllerTest.TestHeadingDerivativeConstant
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PIDControllerTest
+[ RUN      ] PIDControllerTest.TestHeadingDerivativeConstant
+[       OK ] PIDControllerTest.TestHeadingDerivativeConstant (0 ms)
+[----------] 1 test from PIDControllerTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"PIDControllerTest.TestHeadingDerivativeConstant" end time: Oct 24 15:53 EDT
+"PIDControllerTest.TestHeadingDerivativeConstant" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 24 15:53 EDT
