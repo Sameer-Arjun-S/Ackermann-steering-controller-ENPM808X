@@ -1,5 +1,5 @@
 /**
- * @file robot.cpp
+ * @file RobotSimulation.cpp
  * @author Driver - Ishaan Samir Parikh
            Navigator - Manav Bhavesh Nagda
  * @brief Represents a class for simulating a robot's control system.
