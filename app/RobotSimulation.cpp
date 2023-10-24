@@ -17,12 +17,36 @@
 #include <cmath>
 #include <vector>
 
+/**
+ * @brief Constructs a new Robot Simulation object with the specified parameters.
+ *
+ * This constructor initializes a robot simulation with the given characteristics, including the robot's physical properties
+ * and PID controller parameters.
+ *
+ * @param wheelbase The wheelbase of the robot (distance between front and rear axles).
+ * @param trackWidth The track width of the robot (distance between the two wheels on the same axle).
+ * @param maxSteeringAngle The maximum allowed steering angle for the robot's wheels.
+ * @param velP The proportional constant for velocity control.
+ * @param velI The integral constant for velocity control.
+ * @param velD The derivative constant for velocity control.
+ * @param deltaT The time step for control calculations.
+ * @param headP The proportional constant for heading control.
+ * @param headI The integral constant for heading control.
+ * @param headD The derivative constant for heading control.
+ */
 RobotSimulation::RobotSimulation(double wheelbase, double trackWidth, double maxSteeringAngle,
                                  double velP, double velI, double velD, double deltaT,
                                  double headP, double headI, double headD)
     : robot(wheelbase, trackWidth, maxSteeringAngle), controller(velP, velI, velD, deltaT, headP, headI, headD) {
 }
 
+/**
+ * @brief Runs the robot simulation control loop.
+ *
+ * This function allows the user to interactively input target heading and velocity, and the robot simulation
+ * attempts to control the robot's movement to reach these targets using the PID controller. The control loop
+ * continues until the user exits or convergence to the target is achieved.
+ */
 void RobotSimulation::runSimulation() {
     while (true) {
         double targetHeading, targetVelocity;
@@ -49,7 +73,7 @@ void RobotSimulation::runSimulation() {
             // Get the current state of the robot
             double currentX, currentY, currentTheta, currentVelocity;
             robot.getState(currentX, currentY, currentTheta, currentVelocity);
-            std::cout<< "loc "<< currentTheta << std::endl;
+            std::cout<< "Current Location: x=" << currentX << " y=" << currentY << " theta=" << currentTheta << " velocity=" << currentVelocity << std::endl;
 
             // Calculate the errors between the current state and the desired set points
             controller.computeErrors(targetVelocity, currentVelocity, targetHeading, currentTheta);
@@ -79,4 +103,3 @@ void RobotSimulation::runSimulation() {
         std::cout << "Final State: x=" << finalX << " y=" << finalY << " theta=" << finalTheta << " velocity=" << finalVelocity << std::endl;
     }
 }
-
