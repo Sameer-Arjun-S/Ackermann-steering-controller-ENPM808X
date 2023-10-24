@@ -27,9 +27,12 @@ void RobotSimulation::runSimulation() {
     while (true) {
         double targetHeading, targetVelocity;
 
-        // Stub: In a real implementation, you would obtain target values from your control system.
-        targetHeading = 0.0;
-        targetVelocity = 0.0;
+        // Prompt the user to enter the target heading and velocity
+        std::cout << "Enter the target heading (in radians): ";
+        std::cin >> targetHeading;
+
+        std::cout << "Enter the target velocity: ";
+        std::cin >> targetVelocity;
 
         // Check if the user wants to exit
         if (targetHeading < 0 || targetVelocity < 0) {
@@ -42,31 +45,26 @@ void RobotSimulation::runSimulation() {
 
         for (int i = 0; i < maxIterations; i++) {
 
-            std::cout << "Iteration " << i << std::endl;
-
+            std::cout<< "Iteration "<< i << std::endl;
             // Get the current state of the robot
             double currentX, currentY, currentTheta, currentVelocity;
+            robot.getState(currentX, currentY, currentTheta, currentVelocity);
+            std::cout<< "loc "<< currentTheta << std::endl;
 
-            // Stub: In a real implementation, you would obtain the current state from your robot model.
-            currentX = 0.0;
-            currentY = 0.0;
-            currentTheta = 0.0;
-            currentVelocity = 0.0;
-
-            std::cout << "loc " << currentTheta << std::endl;
-
-            // Stub: In a real implementation, you would calculate errors and control outputs.
+            // Calculate the errors between the current state and the desired set points
             controller.computeErrors(targetVelocity, currentVelocity, targetHeading, currentTheta);
 
-            // Stub: In a real implementation, you would compute PID control outputs and update the robot's state.
-            std::vector<double> controlOutputs;
+            // Compute PID control outputs
+            std::vector<double> controlOutputs = controller.computePID();
 
-            // Stub: In a real implementation, you would extract control outputs and update the robot's state.
-            double steeringAngle, leftWheelVelocity, rightWheelVelocity;
+            // Extract control outputs
+            double steeringAngle = controlOutputs[1]; // Assuming steeringAngle is the second element
+            double leftWheelVelocity, rightWheelVelocity;
+            robot.calculateSteeringAndDriveVelocities(1.0 / tan(steeringAngle), steeringAngle, leftWheelVelocity, rightWheelVelocity);
 
-            // Stub: In a real implementation, you would update the robot's state.
+            // Update the robot's state
             robot.updateState(steeringAngle, controller.getDeltaTime());
-
+            
             // Check for convergence
             if (fabs(targetVelocity - currentVelocity) < convergenceThreshold &&
                 fabs(targetHeading - currentTheta) < convergenceThreshold) {
@@ -75,13 +73,10 @@ void RobotSimulation::runSimulation() {
             }
         }
 
-        // Stub: In a real implementation, you would obtain the final state from your robot model.
+        // Get the final state of the robot after convergence
         double finalX, finalY, finalTheta, finalVelocity;
-        finalX = 0.0;
-        finalY = 0.0;
-        finalTheta = 0.0;
-        finalVelocity = 0.0;
-
+        robot.getState(finalX, finalY, finalTheta, finalVelocity);
         std::cout << "Final State: x=" << finalX << " y=" << finalY << " theta=" << finalTheta << " velocity=" << finalVelocity << std::endl;
     }
 }
+
