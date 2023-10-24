@@ -149,10 +149,20 @@ double PIDController::getHeadingDerivativeConstant() {
     return headKd;
 }
 
+/**
+ * @brief Retrieves the vector of velocity errors.
+ * 
+ * @return The vector containing velocity errors.
+ */
 const std::vector<double>& PIDController::getVelocityErrors() const {
     return velocityErrors;
 }
 
+/**
+ * @brief Retrieves the vector of heading errors.
+ * 
+ * @return The vector containing heading errors.
+ */
 const std::vector<double>& PIDController::getHeadingErrors() const {
     return headingErrors;
 }
@@ -194,4 +204,3 @@ void PIDController::computeErrors(double targetVelocity, double currentVelocity,
     velocityErrors.push_back(velocityError);
     headingErrors.push_back(headingError);
 }
-
