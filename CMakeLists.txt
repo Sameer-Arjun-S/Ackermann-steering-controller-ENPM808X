@@ -71,7 +71,7 @@ execute_process(COMMAND cmake -E create_symlink
 #
 option(WANT_COVERAGE "this option enable coverage" ON)
 if(NOT CMAKE_BUILD_TYPE MATCHES "Debug")
-  set(WANT_COVERAGE OFF)
+  set(WANT_COVERAGE ON)
 endif()
 
 if(WANT_COVERAGE)
@@ -108,13 +108,13 @@ if(WANT_COVERAGE)
   # unit test coverage:
   setup_target_for_coverage_lcov ( # use lcov to generate coverage report
     NAME test_coverage          # target name
-    # EXECUTABLE ctest || true    # what to run insdie the build directory?
+    EXECUTABLE ctest || true    # what to run insdie the build directory?
     #                             #   '|| true' --> continue coverage even if ctest failed
     EXECUTABLE ctest     # what to run insdie the build directory?
     EXCLUDE
-      "app/main.cpp"     # Unit test does not run app, so don't analyze it
-      "*gtest*"          # Don't analyze googleTest code
-      "/usr/include/*"   # Don't analyze system headers
+      # "app/main.cpp"     # Unit test does not run app, so don't analyze it
+      # "*gtest*"          # Don't analyze googleTest code
+      # "/usr/include/*"   # Don't analyze system headers
     )
 
   # code coverage for the app (shell-app):
@@ -123,8 +123,8 @@ if(WANT_COVERAGE)
     NAME app_coverage          # target name
     EXECUTABLE shell-app       # what to run insdie the build directory?
     EXCLUDE
-    "test/test.cpp"    # App does not run unit test, so don't analyze it
-    "test/main.cpp"    # App does not run unit test, so don't analyze it
+    # "test/test.cpp"    # App does not run unit test, so don't analyze it
+    # "test/main.cpp"    # App does not run unit test, so don't analyze it
     )
 
 endif()
