@@ -1,11 +1,7 @@
 /**
- * @file RobotSimulation.hpp
- * @brief Contains the RobotSimulation class definition.
- */
-/**
- * @def M_PI
- * @brief A macro that defines the mathematical constant pi (π)
- * @author Driver: Manav Nagda, Navigator: Sameer Arjun S, Design Keeper: Ishaan Parik
+ * @file main.cpp
+ * @brief Contains the maiin function for the program
+ * @author Driver: Manav Nagda, Navigator: Sameer Arjun S, Design Keeper: Ishaan Parikh
  */
 #define M_PI 3.14159265358979323846
 #include "RobotSimulation.hpp"
@@ -23,7 +19,7 @@ int main() {
     RobotSimulation simulation(0.5, 1.0, M_PI / 4.0, 1.0, 0.1, 0.01, 0.1, 1.0, 0.1, 0.01);
 
     //Running the simulation
-    simulation.runSimulation();
+    simulation.runSimulation(0,0);
 
     return 0;
 }
