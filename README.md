@@ -20,12 +20,12 @@ The activity diagram for the program workflow is as follows:
 ![Activity Diagram](https://github.com/Sameer-Arjun-S/Ackermann-steering-controller-ENPM808X/assets/113264700/55354d49-cfa1-47d9-a410-5570a4d9a3bd)
 
 ### Agile Implementaiton Process:
-![Sprint Review](https://docs.google.com/document/d/1NmqzubGhrMsSzRBbdqmDDOxbeHE_2tC1ArEyeNob6Vo/edit)
-![Agile Iterative Process](https://docs.google.com/spreadsheets/d/1YNlWJhyofniJCe_7V67ByR8JngXJ0Lf_kJiTpSbSLZk/edit#gid=0)
+Sprint Review: (https://docs.google.com/document/d/1NmqzubGhrMsSzRBbdqmDDOxbeHE_2tC1ArEyeNob6Vo/edit)
+Agile Iterative Process: (https://docs.google.com/spreadsheets/d/1YNlWJhyofniJCe_7V67ByR8JngXJ0Lf_kJiTpSbSLZk/edit#gid=0)
 
 ## Project reports
 ![Project Phase 0](https://github.com/Sameer-Arjun-S/Ackermann-steering-controller-ENPM808X/blob/development/Project_Report_Phase_0.pdf)
 ![Project Phase 1](https://github.com/Sameer-Arjun-S/Ackermann-steering-controller-ENPM808X/blob/development/Project_report_Phase_1.pdf)
 
 ## Project video presentations
-![Project Phase 0](https://drive.google.com/drive/folders/1XxFNVwzcc_FQ3LxvkB0sat8C8gZQSr4t?usp=share_link)
+Project Phase 0: (https://drive.google.com/drive/folders/1XxFNVwzcc_FQ3LxvkB0sat8C8gZQSr4t?usp=share_link)
