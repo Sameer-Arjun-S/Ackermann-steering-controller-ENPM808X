@@ -3,11 +3,11 @@ name: Continuos integration by test coverage
 on:
   # Triggered whenever push to main 
   push:
-    branches: [ "development" ]
+    branches: ["main" , "development" ]
 
   # Triggered whenever a pull request is created on main
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main" , "development" ]
     types: [opened]
 
   # Allow manual trigger
