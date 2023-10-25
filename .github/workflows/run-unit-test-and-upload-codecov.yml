@@ -12,16 +12,16 @@
 # version 1.1
 ##############################################################################
 
-name: Build
+name: Run Unit Test and Upload Coverage Report
 
 on:
   # Triggered whenever push to main 
   push:
-    branches: [ "main", "Development1"]
+    branches: [ "main" ]
 
   # Triggered whenever a pull request is created on main
   pull_request:
-    branches: [ "main" , "Development1"]
+    branches: [ "development" ]
     types: [opened]
 
   # Allow manual trigger
@@ -36,15 +36,7 @@ jobs:
     steps:
       # We want to use GitHub CI checkout version 3 to check out our branch
       - uses: actions/checkout@v3
-      # Install Eigen
-      - name: install Eigen 
-        run: |   
-            sudo apt install libeigen3-dev
-      # Install OpenCV
-      - name: install opencv 
-        run: |   
-            sudo apt-get install libopencv-dev 
-            sudo apt-get install libopencv-contrib-dev
+      
       # Install some system pacakges
       - name: Install build packages
         run: |
