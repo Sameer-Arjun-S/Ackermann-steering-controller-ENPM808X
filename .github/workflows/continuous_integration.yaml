@@ -25,10 +25,9 @@ jobs:
       
       # Install some system pacakges
       - name: Install packages
-        run: 
-        sudo apt update
-        sudo apt install -y lcov
-        sudo apt install -y doxygen lcov gcovr
+        run: sudo apt update
+              sudo apt install -y lcov
+              sudo apt install -y doxygen lcov gcovr
 
       # Run CMake to setup compilation flags
       - name: Configure Coverage CMake 
