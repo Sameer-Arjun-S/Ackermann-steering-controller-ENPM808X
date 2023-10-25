@@ -1,1 +1,0 @@
-/usr/bin/c++  -g --coverage -fprofile-abs-path CMakeFiles/shell-app.dir/main.cpp.o CMakeFiles/shell-app.dir/PIDController.cpp.o CMakeFiles/shell-app.dir/RobotModel.cpp.o CMakeFiles/shell-app.dir/RobotSimulation.cpp.o -o shell-app  -lgcov 
