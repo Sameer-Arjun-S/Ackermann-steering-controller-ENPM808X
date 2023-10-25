@@ -31,6 +31,7 @@ The activity diagram for the program workflow is as follows:
 
 ## Project video presentations
 - [Project Video Phase 0](https://drive.google.com/drive/folders/1XxFNVwzcc_FQ3LxvkB0sat8C8gZQSr4t?usp=share_link)
+- [Project Video Phase 1](https://drive.google.com/drive/folders/1FB--a8MC04ID6z6_YX9fl1sfQi5uFUO-?usp=drive_link)
 
 ## Compiling and running via command line:
 ```
