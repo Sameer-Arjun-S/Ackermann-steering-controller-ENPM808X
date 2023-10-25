@@ -34,15 +34,42 @@ Project Phase 0: (https://drive.google.com/drive/folders/1XxFNVwzcc_FQ3LxvkB0sat
 ## Compiling and running via command line:
 ```
 #Cloning the repository
-git clone --recursive https://github.com/Sameer-Arjun-S/Ackermann-steering-controller-ENPM808X.git
+  git clone --recursive https://github.com/Sameer-Arjun-S/Ackermann-steering-controller-      ENPM808X.git
 #Configure the project and generate a native build system
-cmake -S ./ -B build/
+  cmake -S ./ -B build/
 #Compiling and building the project
-cmake --build build/ --clean-first
+  cmake --build build/ --clean-first
 #Running the tests
-./test/cpp-test
+  ./test/cpp-test
 #Run the program
-./build/app/shell-app
-Enter target heading in degrees
-Enter target speed in m/s
+  ./build/app/shell-app
+  Enter target heading in degrees
+  Enter target speed in m/s
+```
+
+## Generating the documentation
+```
+# Build the documentation into the 'docs' directory using CMake:
+  cmake --build build/ --target docs
+# Open the documentation as a HTML file in your web browser:
+  open docs/html/index.html
+```
+## Building for test coverage
+```
+# If you don't have gcovr or lcov installed, run:
+  sudo apt-get install gcovr lcov
+# Set the build type to Debug and WANT_COVERAGE=ON:
+  cmake -D WANT_COVERAGE=ON -D CMAKE_BUILD_TYPE=Debug -S ./ -B build/
+# Do a clean compile, run unit test, and generate the coverage report:
+  cmake --build build/ --clean-first --target all test_coverage
+# Open a web browser to browse the test coverage report:
+  open build/test_coverage/index.html
+```
+
+## Google style code verification
+```
+# Install Cpplint(ignore if already installed):
+  sudo apt install cpplint
+# Self-check Google code style conformity using Cpplint:
+  cpplint --filter="-legal/copyright" $( find . -name *.cpp | grep -vE -e "^./build/" )
 ```
