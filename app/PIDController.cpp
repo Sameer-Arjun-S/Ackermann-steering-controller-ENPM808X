@@ -192,31 +192,3 @@ void PIDController::computeErrors(double targetVelocity, double currentVelocity,
     headingErrors.push_back(headingError);
 }
 
-/**
- * @brief Retrieves the vector of heading errors.
- *
- * @return The vector containing heading errors.
- */
-const std::vector<double>& PIDController::getHeadingErrors() const {
-    return headingErrors;
-}
-
-/**
- * @brief Computes and stores the velocity and heading errors.
- *
- * @param targetVelocity The desired velocity.
- * @param currentVelocity The current velocity.
- * @param targetHeading The desired heading (in radians).
- * @param currentHeading The current heading (in radians).
- */
-void PIDController::computeErrors(double targetVelocity, double currentVelocity, double targetHeading, double currentHeading) {
-    double velocityError = targetVelocity - currentVelocity;
-    std::cout << "Velocity Error: " << velocityError << "\n";
-
-    double headingError = targetHeading - currentHeading;
-    std::cout << "Heading Error: " << headingError * 180 / M_PI;
-
-    // Store the computed errors in the respective vectors.
-    velocityErrors.push_back(velocityError);
-    headingErrors.push_back(headingError);
-}
