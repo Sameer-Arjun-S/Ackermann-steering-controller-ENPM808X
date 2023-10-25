@@ -3,11 +3,8 @@ name: Continuos integration by test coverage
 on:
   # Triggered whenever push to main 
   push:
-<<<<<<< Updated upstream
     branches: ["main" , "development" ]
-=======
     branches: [ "main","development" ]
->>>>>>> Stashed changes
 
   # Triggered whenever a pull request is created on main
   pull_request:
