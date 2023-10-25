@@ -20,7 +20,8 @@ The activity diagram for the program workflow is as follows:
 ![Activity Diagram](https://github.com/Sameer-Arjun-S/Ackermann-steering-controller-ENPM808X/assets/113264700/55354d49-cfa1-47d9-a410-5570a4d9a3bd)
 
 ### Agile Implementaiton Process:
-Sprint Review: (https://docs.google.com/document/d/1NmqzubGhrMsSzRBbdqmDDOxbeHE_2tC1ArEyeNob6Vo/edit)
+
+Sprint Review: (https://docs.google.com/document/d/1NmqzubGhrMsSzRBbdqmDDOxbeHE_2tC1ArEyeNob6Vo/edit)                                                  
 Agile Iterative Process: (https://docs.google.com/spreadsheets/d/1YNlWJhyofniJCe_7V67ByR8JngXJ0Lf_kJiTpSbSLZk/edit#gid=0)
 
 ## Project reports
@@ -29,3 +30,19 @@ Agile Iterative Process: (https://docs.google.com/spreadsheets/d/1YNlWJhyofniJCe
 
 ## Project video presentations
 Project Phase 0: (https://drive.google.com/drive/folders/1XxFNVwzcc_FQ3LxvkB0sat8C8gZQSr4t?usp=share_link)
+
+## Compiling and running via command line:
+```
+#Cloning the repository
+git clone --recursive https://github.com/Sameer-Arjun-S/Ackermann-steering-controller-ENPM808X.git
+#Configure the project and generate a native build system
+cmake -S ./ -B build/
+#Compiling and building the project
+cmake --build build/ --clean-first
+#Running the tests
+./test/cpp-test
+#Run the program
+./build/app/shell-app
+Enter target heading in degrees
+Enter target speed in m/s
+```
