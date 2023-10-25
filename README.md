@@ -5,9 +5,10 @@ Software development for Ackermann steering control mechanism using a PID contro
 [![codecov](https://codecov.io/gh/Sameer-Arjun-S/Ackermann-steering-controller-ENPM808X/tree/development/graph/badge.svg)](https://codecov.io/gh/Sameer-Arjun-S/Ackermann-steering-controller-ENPM808X)
 
 # Authors:
-### Sameer Arjun S 
-### Manav Bhavesh Nagda
-### Ishaan Samir Parikh 
+- [Sameer Arjun S](https://github.com/Sameer-Arjun-S) 
+- [Manav Bhavesh Nagda](https://github.com/mvboiii)
+- [Ishaan Samir Parikh](https://github.com/Ishaan1810)
+
 
 ## Overview
 This project uses Agile Iterative process for the implementation for a robot steering control module using the Ackermann kinematic model. The module gets the input of the robot’s target heading and velocity to output the steering angle and drive wheel velocities to achieve
