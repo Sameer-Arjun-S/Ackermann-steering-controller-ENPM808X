@@ -1,3 +1,13 @@
+/**
+ * @file RobotModel.cpp
+ * @author Driver - Sameer Arjun S
+ *         Navigator -  Ishaan Samir Parikh
+ *         Design Keeper - Manav Nagda
+ * @brief Implementation of a class to represent a robot model.
+ * @version 0.1
+ * @date 2023
+ */
+
 #ifndef ROBOT_MODEL_HPP
 #define ROBOT_MODEL_HPP
 
@@ -10,7 +20,7 @@ public:
      * @param trackWidth The distance between the left and right wheels of the robot.
      * @param maxSteeringAngle The maximum allowable steering angle for the robot.
      */
-    RobotModel(double wheelbase, double trackWidth, double maxSteeringAngle);
+    RobotModel(double wheelbase, double wheelRadius, double trackWidth);
 
     /**
      * @brief Sets the initial state of the robot model.
@@ -48,18 +58,26 @@ public:
      * @param velocity The current velocity of the robot (output).
      */
     void getState(double& x, double& y, double& theta, double& velocity);
+    void Simulate_robot_model(double PID_heading_output, double PID_velocity_output, double dt);
+    double getHeading();
+    double getSpeed();
 
 private:
     double wheelbase_;
+    double wheelRadius_;
     double trackWidth_;
     double maxSteeringAngle_;
-
     double x_;
     double y_;
     double theta_;
     double velocity_;
-    double leftWheelVelocity;
-    double rightWheelVelocity;
+    double alpha_i_;
+    double alpha_o_;
+    double omega_i_;
+    double omega_o_;
+    double heading_;
+    double speed_;
+
 };
 
 #endif // ROBOT_MODEL_HPP

@@ -10,6 +10,7 @@
 
 #include "RobotModel.hpp"
 #include <cmath>
+#include<iostream>
 
 /**
  * @brief Constructor for the RobotModel class.
@@ -18,9 +19,10 @@
  * @param trackWidth The distance between the left and right wheels of the robot.
  * @param maxSteeringAngle The maximum allowable steering angle for the robot.
  */
-RobotModel::RobotModel(double wheelbase, double trackWidth, double maxSteeringAngle)
-    : wheelbase_(wheelbase), trackWidth_(trackWidth), maxSteeringAngle_(maxSteeringAngle),
-      x_(0.0), y_(0.0), theta_(0.0), velocity_(0.0) {
+RobotModel::RobotModel(double wheelbase, double wheelRadius, double trackWidth)
+    : wheelbase_(wheelbase), wheelRadius_(wheelRadius), trackWidth_(trackWidth),
+      alpha_i_(0.0), alpha_o_(0.0), omega_i_(0.0), omega_o_(0.0), heading_(0.0), speed_(0.0),
+      maxSteeringAngle_(0.0), x_(0.0), y_(0.0), theta_(0.0), velocity_(0.0) {
 }
 
 /**
@@ -96,4 +98,62 @@ void RobotModel::getState(double& x, double& y, double& theta, double& velocity)
     y = y_;
     theta = theta_;
     velocity = velocity_;
+}
+
+void RobotModel::Simulate_robot_model(double PID_heading_output, double PID_velocity_output, double dt) {
+    double R;
+    double deltaTheta = 0;
+    double newSpeed = 0;
+
+    if (PID_heading_output > 0) {
+        // Robot is executing a left turn
+        R = wheelbase_ * 1 / std::tan(PID_heading_output);
+        alpha_i_ = std::atan(wheelbase_ / (R - (trackWidth_ / 2)));  // left wheel
+        alpha_o_ = std::atan(wheelbase_ / (R + (trackWidth_ / 2)));  // right wheel
+        omega_o_ += PID_velocity_output;
+        deltaTheta = (wheelRadius_ * omega_o_ * dt) / (R + (trackWidth_ / 2));
+        omega_i_ = (deltaTheta * (R - (trackWidth_ / 2))) / (wheelRadius_ * dt);
+        newSpeed = std::abs((R * deltaTheta) / dt);
+    } else if (PID_heading_output < 0) {
+        // Robot is executing a right turn
+        R = wheelbase_ * 1 / std::tan(PID_heading_output);
+        alpha_o_ = std::atan(wheelbase_ / (R - (trackWidth_ / 2)));  // left wheel
+        alpha_i_ = std::atan(wheelbase_ / (R + (trackWidth_ / 2)));  // right wheel
+        omega_i_ += PID_velocity_output;
+        deltaTheta = (wheelRadius_ * omega_i_ * dt) / (R + (trackWidth_ / 2));
+        omega_o_ = (deltaTheta * (R - (trackWidth_ / 2))) / (wheelRadius_ * dt);
+        newSpeed = std::abs((R * deltaTheta) / dt);
+    } else {
+        // Robot is going straight
+        alpha_o_ = 0;
+        alpha_i_ = 0;
+        if (omega_i_ >= omega_o_) {
+            omega_o_ += PID_velocity_output;
+            omega_i_ = omega_o_;
+        } else {
+            omega_i_ += PID_velocity_output;
+            omega_o_ = omega_i_;
+        }
+        newSpeed = omega_i_ * wheelRadius_;
+    }
+
+    heading_ += deltaTheta;
+    speed_ = newSpeed;
+
+    std::cout << "heading: " << 180 * heading_ / M_PI << "\n";
+    std::cout << "Speed: " << speed_ << "\n";
+    std::cout << "**********OUTPUTS***************" << "\n";
+    std::cout << "Inner steering angle: " << alpha_i_ << "\n";
+    std::cout << "Outer steering angle: " << alpha_o_ << "\n";
+    std::cout << "Inner wheel linear velocity: " << omega_i_ * wheelRadius_ << "\n";
+    std::cout << "Outer wheel linear velocity: " << omega_o_ * wheelRadius_ << "\n";
+    std::cout << "********************************" << "\n";
+}
+
+double RobotModel::getHeading() {
+    return heading_;
+}
+
+double RobotModel::getSpeed() {
+    return speed_;
 }

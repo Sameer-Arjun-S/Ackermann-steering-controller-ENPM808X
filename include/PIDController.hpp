@@ -1,3 +1,13 @@
+/**
+ * @file PIDController.cpp
+ * @author Driver - Manav Bhavesh Nagda
+ *         Navigator - Sameer Arjun Satheesh
+ *         Design Keeper - Ishaan Samir Parikh
+ * @brief Implementation of a PID controller for Ackermann Kinematic model.
+ * @version 0.1
+ * @date 2023
+ */
+
 #ifndef PID_CONTROLLER_HPP
 #define PID_CONTROLLER_HPP
 
