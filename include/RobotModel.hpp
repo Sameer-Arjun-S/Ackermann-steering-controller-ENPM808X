@@ -49,8 +49,31 @@ public:
      * @param velocity The current velocity of the robot (output).
      */
     void getState(double& x, double& y, double& theta, double& velocity);
+    /**
+     * @brief Simulates the robot model's motion based on PID controller outputs.
+     *
+     * This function updates the robot's state based on the provided PID controller outputs
+     * for heading control and velocity control. It simulates the motion of the robot and
+     * updates its heading and speed.
+     *
+     * @param PID_heading_output The PID controller output for heading control.
+     * @param PID_velocity_output The PID controller output for velocity control.
+     * @param dt The time step for simulation.
+     */
     void Simulate_robot_model(double PID_heading_output, double PID_velocity_output, double dt);
+
+    /**
+     * @brief Get the current heading of the robot in radians.
+     *
+     * @return The current heading of the robot in radians.
+     */
     double getHeading();
+
+    /**
+     * @brief Get the current speed of the robot in meters per second (m/s).
+     *
+     * @return The current speed of the robot in m/s.
+     */
     double getSpeed();
 
 private:

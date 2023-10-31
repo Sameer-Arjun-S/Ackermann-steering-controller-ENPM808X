@@ -51,7 +51,8 @@ std::vector<double> PIDController::computePID() {
 
     // Calculate the proportional term for velocity control.
     Pvel = velKp * velocityErrors.back();
-    double IvelSum = std::accumulate(velocityErrors.begin(), velocityErrors.end(), 0.0);
+    double IvelSum = std::accumulate(velocityErrors.begin(),
+                                 velocityErrors.end(), 0.0);
     // Calculate the integral term for velocity control.
     Ivel = velKi * IvelSum;
 
@@ -59,20 +60,23 @@ std::vector<double> PIDController::computePID() {
         Dvel = 0;
     else
         // Calculate the derivative term for velocity control.
-        Dvel = velKd * ((velocityErrors.back() - velocityErrors[velocityErrors.size() - 2]) / deltaT);
+        Dvel = velKd * ((velocityErrors.back() -
+                     velocityErrors[velocityErrors.size() - 2]) / deltaT);
 
     // Calculate the overall PID output for velocity control.
     double velPIDOut = Pvel + Ivel + Dvel;
 
     // Repeat the same process for heading control.
     Phead = headKp * headingErrors.back();
-    double IheadSum = std::accumulate(headingErrors.begin(), headingErrors.end(), 0.0);
+    double IheadSum = std::accumulate(headingErrors.begin(),
+                             headingErrors.end(), 0.0);
     Ihead = headKi * IheadSum;
 
     if (headingErrors.size() < 2)
         Dhead = 0;
     else
-        Dhead = headKd * ((headingErrors.back() - headingErrors[headingErrors.size() - 2]) / deltaT);
+        Dhead = headKd * ((headingErrors.back() -
+                         headingErrors[headingErrors.size() - 2]) / deltaT);
 
     double headPIDOut = Phead + Ihead + Dhead;
 
@@ -180,7 +184,8 @@ const std::vector<double>& PIDController::getHeadingErrors() const {
  * @param targetHeading The desired heading (in radians).
  * @param currentHeading The current heading (in radians).
  */
-void PIDController::computeErrors(double targetVelocity, double currentVelocity, double targetHeading, double currentHeading) {
+void PIDController::computeErrors(double targetVelocity,
+         double currentVelocity, double targetHeading, double currentHeading) {
     double velocityError = targetVelocity - currentVelocity;
     std::cout << "Velocity Error: " << velocityError << "\n";
 
