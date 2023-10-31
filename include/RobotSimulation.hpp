@@ -50,28 +50,7 @@ public:
      * attempts to control the robot's movement to reach these targets using the PID controller. The control loop
      * continues until the user exits or convergence to the target is achieved.
      */
-    void runSimulation();
-
-    /**
-     * @brief Get the final x-coordinate of the robot.
-     *
-     * @return The final x-coordinate.
-     */
-    double getFinalX() const;
-
-    /**
-     * @brief Get the final y-coordinate of the robot.
-     *
-     * @return The final y-coordinate.
-     */
-    double getFinalY() const;
-
-    /**
-     * @brief Get the final orientation (theta) of the robot.
-     *
-     * @return The final orientation (in radians).
-     */
-    double getFinalTheta() const;
+    void runSimulation(double targetHeading, double targetVelocity);
 
     /**
      * @brief Get the final velocity of the robot.
@@ -83,10 +62,10 @@ public:
 private:
     RobotModel robot;
     PIDController controller;
-    double finalX;
-    double finalY;
-    double finalTheta;
-    double finalVelocity;
+    double finalX = 0.0;
+    double finalY = 0.0;
+    double finalTheta = 0.0;
+    double finalVelocity = 0.0;
 };
 
 #endif // ROBOT_SIMULATION_HPP

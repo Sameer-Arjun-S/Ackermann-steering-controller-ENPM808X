@@ -41,15 +41,6 @@ public:
     void updateState(double steeringAngle, double dt);
 
     /**
-     * @brief Calculates the steering angle and left/right wheel velocities based on a desired turning radius.
-     * 
-     * @param desiredTurningRadius The desired turning radius for the robot's path.
-     * @param steeringAngle The calculated steering angle (output).
-     * @param velocity_ The calculated velocity (output).
-     */
-    void calculateSteeringAndDriveVelocities(double desiredTurningRadius, double& steeringAngle, double& velocity_);
-
-    /**
      * @brief Retrieves the current state of the robot model.
      * 
      * @param x The current x-coordinate of the robot (output).
