@@ -50,7 +50,7 @@ public:
      * attempts to control the robot's movement to reach these targets using the PID controller. The control loop
      * continues until the user exits or convergence to the target is achieved.
      */
-    void runSimulation(double targetHeading, double targetVelocity);
+    void runSimulation();
 
     /**
      * @brief Get the final x-coordinate of the robot.

@@ -123,13 +123,13 @@ TEST(RobotModelTest, SetInitialStateTest) {
     ASSERT_DOUBLE_EQ(velocity, 3.0);
 }
 
-/**
- * @brief This test case checks if the RobotSimulation runs without exceptions.
- */
-TEST(RobotSimulation, Check_Simulation_Running) {
-    RobotSimulation simulation(0.5, 1.0, M_PI / 4.0, 1.0, 0.1, 0.01, 0.1, 1.0, 0.1, 0.01);
-    EXPECT_NO_THROW(simulation.runSimulation(0.2, 2));
-}
+// /**
+//  * @brief This test case checks if the RobotSimulation runs without exceptions.
+//  */
+// TEST(RobotSimulation, Check_Simulation_Running) {
+//     RobotSimulation simulation(0.5, 1.0, M_PI / 4.0, 1.0, 0.1, 0.01, 0.1, 1.0, 0.1, 0.01);
+//     EXPECT_NO_THROW(simulation.runSimulation(0.2, 2));
+// }
 
 
 // TEST(RobotSimulation, Check_Simulation_FinalState) {

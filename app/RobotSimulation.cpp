@@ -47,51 +47,71 @@ RobotSimulation::RobotSimulation(double wheelbase, double trackWidth, double max
  * attempts to control the robot's movement to reach these targets using the PID controller. The control loop
  * continues until the user exits or convergence to the target is achieved.
  */
-void RobotSimulation::runSimulation(double targetHeading, double targetVelocity) {
+void RobotSimulation::runSimulation() {
+    double currentVelocity = 0.0;
+    double currentTheta = 0.0;
 
-    // double targetHeading, targetVelocity;
-    if (targetHeading == 0 && targetVelocity == 0) {
+    while (true) {
+        double targetHeading, targetVelocity;
+
         // Prompt the user to enter the target heading and velocity
         std::cout << "Enter the target heading (in radians): ";
         std::cin >> targetHeading;
 
         std::cout << "Enter the target velocity: ";
         std::cin >> targetVelocity;
+
+        // Check if the user wants to exit
+        if (targetHeading < 0 || targetVelocity < 0) {
+            std::cout << "Exiting the control loop." << std::endl;
+            break;
+        }
+
+        const int maxIterations = 30;
+        const double convergenceThreshold = 3; // Adjust as needed
+
+        for (int i = 0; i < maxIterations; i++) {
+
+            std::cout << "Iteration " << i << std::endl;
+            // std::cout << "init" << currentVelocity;
+            // Compute PID errors
+            controller.computeErrors(targetVelocity, currentVelocity, targetHeading, currentTheta);
+
+            // Get the PID controller outputs
+            std::vector<double> controlOutputs = controller.computePID();
+
+            // Extract control outputs
+            double steeringAngle = controlOutputs[1];  // Extract the steering angle from PID
+            double velocityOutput = controlOutputs[0];
+
+
+            // Simulate the robot model with Ackermann kinematic model
+            robot.Simulate_robot_model(steeringAngle, velocityOutput, controller.getDeltaTime());
+
+            // Simulate the robot model with Ackermann kinematic model
+            robot.updateState(steeringAngle, controller.getDeltaTime());
+
+            // Get the current state of the robot
+            double currentVel = robot.getSpeed();
+            std::cout << "getspeed" << currentVelocity;
+            double currentHead = robot.getHeading();
+
+            // Check for convergence
+            if (fabs(targetVelocity - currentVelocity) < convergenceThreshold &&
+                fabs(targetHeading - currentTheta) < convergenceThreshold) {
+                std::cout << "Converged to the set points." << std::endl;
+                break;}
+                        
+
+            currentVelocity = currentVel;
+            currentTheta = currentHead ;
+        }
+
+        // Get the final state of the robot after convergence
+        double finalX, finalY, finalTheta, finalVelocity;
+        robot.getState(finalX, finalY, finalTheta, finalVelocity);
+        std::cout << "Final State: x=" << finalX << " y=" << finalY << " theta=" << finalTheta << " velocity=" << finalVelocity << std::endl;
     }
-
-    // Check if the invalid input
-    if (targetHeading < 0 || targetVelocity < 0) {
-        std::cout << "Exiting the control loop." << std::endl;
-    }
-
-    const int maxIterations = 1000;
-    for (int i = 0; i < maxIterations; i++) {
-
-        std::cout << "Iteration " << i << std::endl;
-        // Get the current state of the robot
-        double currentX, currentY, currentTheta, currentVelocity;
-        robot.getState(currentX, currentY, currentTheta, currentVelocity);
-        std::cout << "Current Location: x=" << currentX << " y=" << currentY << " theta=" << currentTheta << " velocity=" << currentVelocity << std::endl;
-
-        // Calculate the errors between the current state and the desired set points
-        controller.computeErrors(targetVelocity, currentVelocity, targetHeading, currentTheta);
-
-        // Compute PID control outputs
-        std::vector<double> controlOutputs = controller.computePID();
-
-        // Extract control outputs
-        double steeringAngle = controlOutputs[1];
-        double Vel = controlOutputs[0];
-        robot.calculateSteeringAndDriveVelocities(1.0 / tan(steeringAngle), steeringAngle, Vel);
-
-        // Update the robot's state
-        robot.updateState(steeringAngle, controller.getDeltaTime());
-    }
-
-    // Get the final state of the robot after 1000 iterations
-    double finalX, finalY, finalTheta, finalVelocity;
-    robot.getState(finalX, finalY, finalTheta, finalVelocity);
-    std::cout << "Final State: x=" << finalX << " y=" << finalY << " theta=" << finalTheta << " velocity=" << finalVelocity << std::endl;
 }
 
 /**
