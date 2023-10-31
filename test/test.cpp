@@ -83,7 +83,8 @@ TEST(PIDControllerTest, TestComputeErrors) {
     double currentHeading = 2.0;
 
     // Call the computeErrors function with specific values
-    PID.computeErrors(targetVelocity, currentVelocity, targetHeading, currentHeading);
+    PID.computeErrors(targetVelocity, currentVelocity,
+                             targetHeading, currentHeading);
 
     // Access the last elements of velocityErrors and headingErrors
     double velocityError = PID.getVelocityErrors().back();
@@ -114,7 +115,7 @@ TEST(RobotModelTest, InitialStateTest) {
  */
 TEST(RobotModelTest, SetInitialStateTest) {
     RobotModel robot(2.0, 1.0, 0.5);
-    robot.setInitialState(1.0, 2.0, 0.785, 3.0);  // (1.0, 2.0, 45 degrees, 3.0 m/s)
+    robot.setInitialState(1.0, 2.0, 0.785, 3.0);
     double x, y, theta, velocity;
     robot.getState(x, y, theta, velocity);
     ASSERT_DOUBLE_EQ(x, 1.0);
@@ -127,18 +128,17 @@ TEST(RobotModelTest, SetInitialStateTest) {
  * @brief This test case checks if the RobotSimulation runs without exceptions.
  */
 TEST(RobotSimulation, Check_Simulation_Running) {
-    RobotSimulation simulation(0.5, 1.0, M_PI / 4.0, 1.0, 0.1, 0.01, 0.1, 1.0, 0.1, 0.01);
-    EXPECT_NO_THROW(simulation.runSimulation(0.2, 2));
+    RobotSimulation simulation(0.5, 1.0, M_PI / 4.0, 1.0,
+                                 0.1, 0.01, 0.1, 1.0, 0.1, 0.01);
+    EXPECT_NO_THROW(simulation.runSimulation(5.0, 20.0));
 }
 
 
-// TEST(RobotSimulation, Check_Simulation_FinalState) {
-//     RobotSimulation simulation(0.5, 1.0, M_PI / 4.0, 1.0, 0.1, 0.01, 0.1, 1.0, 0.1, 0.01);
-//     simulation.runSimulation(0.5, 2);
+TEST(RobotSimulation, Check_Simulation_FinalState) {
+    RobotSimulation simulation(0.5, 1.0, M_PI / 4.0, 1.0, 0.1,
+                         0.01, 0.1, 1.0, 0.1, 0.01);
+    simulation.runSimulation(0.0, 0.0);
 
-//     // Check if finalX, finalY, finalTheta, and finalVelocity are all zero
-//     EXPECT_DOUBLE_EQ(simulation.getFinalX(), 0);
-//     EXPECT_DOUBLE_EQ(simulation.getFinalY(), 0);
-//     EXPECT_DOUBLE_EQ(simulation.getFinalTheta(), 0);
-//     EXPECT_DOUBLE_EQ(simulation.getFinalVelocity(), 0);
-// }
+    // Check if finalVelocity is zero
+    EXPECT_DOUBLE_EQ(simulation.getFinalVelocity(), 0);
+}

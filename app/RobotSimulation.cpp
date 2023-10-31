@@ -34,10 +34,13 @@
  * @param headI The integral constant for heading control.
  * @param headD The derivative constant for heading control.
  */
-RobotSimulation::RobotSimulation(double wheelbase, double trackWidth, double maxSteeringAngle,
-                                 double velP, double velI, double velD, double deltaT,
-                                 double headP, double headI, double headD)
-    : robot(wheelbase, trackWidth, maxSteeringAngle), controller(velP, velI, velD, deltaT, headP, headI, headD) {
+RobotSimulation::RobotSimulation(double wheelbase, double trackWidth,
+                            double maxSteeringAngle,
+                            double velP, double velI, double velD,
+                            double deltaT,
+                            double headP, double headI, double headD)
+    : robot(wheelbase, trackWidth, maxSteeringAngle),
+            controller(velP, velI, velD, deltaT, headP, headI, headD) {
 }
 
 /**
@@ -47,10 +50,14 @@ RobotSimulation::RobotSimulation(double wheelbase, double trackWidth, double max
  * attempts to control the robot's movement to reach these targets using the PID controller. The control loop
  * continues until the user exits or convergence to the target is achieved.
  */
-void RobotSimulation::runSimulation(double targetHeading, double targetVelocity) {
+
+void RobotSimulation::runSimulation(double targetHeading,
+                                 double targetVelocity) {
+    double currentVelocity = 0.0;
+    double currentTheta = 0.0;
 
     // double targetHeading, targetVelocity;
-    if (targetHeading == 0 && targetVelocity == 0) {
+    if (targetHeading == 1000.0 && targetVelocity == 1000.0) {
         // Prompt the user to enter the target heading and velocity
         std::cout << "Enter the target heading (in radians): ";
         std::cin >> targetHeading;
@@ -59,66 +66,51 @@ void RobotSimulation::runSimulation(double targetHeading, double targetVelocity)
         std::cin >> targetVelocity;
     }
 
-    // Check if the invalid input
-    if (targetHeading < 0 || targetVelocity < 0) {
-        std::cout << "Exiting the control loop." << std::endl;
-    }
+    const int maxIterations = 30;
+    const double convergenceThreshold = 3;  // Adjust as needed
 
-    const int maxIterations = 1000;
     for (int i = 0; i < maxIterations; i++) {
-
         std::cout << "Iteration " << i << std::endl;
-        // Get the current state of the robot
-        double currentX, currentY, currentTheta, currentVelocity;
-        robot.getState(currentX, currentY, currentTheta, currentVelocity);
-        std::cout << "Current Location: x=" << currentX << " y=" << currentY << " theta=" << currentTheta << " velocity=" << currentVelocity << std::endl;
+        // std::cout << "init" << currentVelocity;
+        // Compute PID errors
+        controller.computeErrors(targetVelocity, currentVelocity,
+                                     targetHeading, currentTheta);
 
-        // Calculate the errors between the current state and the desired set points
-        controller.computeErrors(targetVelocity, currentVelocity, targetHeading, currentTheta);
-
-        // Compute PID control outputs
+        // Get the PID controller outputs
         std::vector<double> controlOutputs = controller.computePID();
 
         // Extract control outputs
         double steeringAngle = controlOutputs[1];
-        double Vel = controlOutputs[0];
-        robot.calculateSteeringAndDriveVelocities(1.0 / tan(steeringAngle), steeringAngle, Vel);
+        double velocityOutput = controlOutputs[0];
 
-        // Update the robot's state
+
+        // Simulate the robot model with Ackermann kinematic model
+        robot.Simulate_robot_model(steeringAngle, velocityOutput,
+                                     controller.getDeltaTime());
+
+        // Simulate the robot model with Ackermann kinematic model
         robot.updateState(steeringAngle, controller.getDeltaTime());
+
+        // Get the current state of the robot
+        double currentVel = robot.getSpeed();
+        std::cout << "getspeed" << currentVelocity;
+        double currentHead = robot.getHeading();
+
+        // Check for convergence
+        if (fabs(targetVelocity - currentVelocity) < convergenceThreshold &&
+            fabs(targetHeading - currentTheta) < convergenceThreshold) {
+            std::cout << "Converged to the set points." << std::endl;
+            break;}
+
+        currentVelocity = currentVel;
+        currentTheta = currentHead;
     }
 
-    // Get the final state of the robot after 1000 iterations
+    // Get the final state of the robot after convergence
     double finalX, finalY, finalTheta, finalVelocity;
     robot.getState(finalX, finalY, finalTheta, finalVelocity);
-    std::cout << "Final State: x=" << finalX << " y=" << finalY << " theta=" << finalTheta << " velocity=" << finalVelocity << std::endl;
-}
-
-/**
- * @brief Get the final x-coordinate of the robot.
- *
- * @return The final x-coordinate.
- */
-double RobotSimulation::getFinalX() const {
-    return finalX;
-}
-
-/**
- * @brief Get the final y-coordinate of the robot.
- *
- * @return The final y-coordinate.
- */
-double RobotSimulation::getFinalY() const {
-    return finalY;
-}
-
-/**
- * @brief Get the final orientation (theta) of the robot.
- *
- * @return The final orientation (in radians).
- */
-double RobotSimulation::getFinalTheta() const {
-    return finalTheta;
+    std::cout << "Final State: x=" << finalX << " y=" << finalY <<
+         " theta=" << finalTheta << " velocity=" << finalVelocity << std::endl;
 }
 
 /**

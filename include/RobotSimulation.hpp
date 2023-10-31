@@ -1,3 +1,18 @@
+/**
+ * @file RobotSimulation.cpp
+ * @author Driver - Ishaan Samir Parikh
+ *         Navigator - Manav Bhavesh Nagda
+ *         Design Keeper - Sameer Arjun Sateesh
+ * @brief Represents a class for simulating a robot's control system.
+ *
+ * The `RobotSimulation` class allows navigation and control of a robot's motion. It integrates
+ * the robot's physical behavior with a PID controller to achieve target heading and velocity.
+ * @version 0.1
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
 #ifndef ROBOT_SIMULATION_HPP
 #define ROBOT_SIMULATION_HPP
 
@@ -38,27 +53,6 @@ public:
     void runSimulation(double targetHeading, double targetVelocity);
 
     /**
-     * @brief Get the final x-coordinate of the robot.
-     *
-     * @return The final x-coordinate.
-     */
-    double getFinalX() const;
-
-    /**
-     * @brief Get the final y-coordinate of the robot.
-     *
-     * @return The final y-coordinate.
-     */
-    double getFinalY() const;
-
-    /**
-     * @brief Get the final orientation (theta) of the robot.
-     *
-     * @return The final orientation (in radians).
-     */
-    double getFinalTheta() const;
-
-    /**
      * @brief Get the final velocity of the robot.
      *
      * @return The final velocity.
@@ -68,10 +62,10 @@ public:
 private:
     RobotModel robot;
     PIDController controller;
-    double finalX;
-    double finalY;
-    double finalTheta;
-    double finalVelocity;
+    double finalX = 0.0;
+    double finalY = 0.0;
+    double finalTheta = 0.0;
+    double finalVelocity = 0.0;
 };
 
 #endif // ROBOT_SIMULATION_HPP
