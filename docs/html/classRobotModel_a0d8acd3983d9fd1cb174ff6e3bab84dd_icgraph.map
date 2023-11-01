@@ -1,0 +1,5 @@
+<map id="RobotModel::getSpeed" name="RobotModel::getSpeed">
+<area shape="rect" id="node1" title="Get the current speed of the robot in meters per second (m/s)." alt="" coords="385,5,555,32"/>
+<area shape="rect" id="node2" href="$classRobotSimulation.html#a16464f5b267cc790c7ca00897ca68afe" title="Runs the robot simulation control loop." alt="" coords="108,5,337,32"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="The main function that runs the robot simulation." alt="" coords="5,5,60,32"/>
+</map>

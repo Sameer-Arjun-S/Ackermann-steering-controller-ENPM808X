@@ -1,0 +1,12 @@
+<map id="main" name="main">
+<area shape="rect" id="node1" title="The main function that runs the robot simulation." alt="" coords="5,183,60,209"/>
+<area shape="rect" id="node2" href="$classRobotSimulation.html#a16464f5b267cc790c7ca00897ca68afe" title="Runs the robot simulation control loop." alt="" coords="108,183,337,209"/>
+<area shape="rect" id="node3" href="$classPIDController.html#a522ed733f2d81b815b8b2b1ca69d817e" title="Computes and stores the velocity and heading errors." alt="" coords="385,5,596,32"/>
+<area shape="rect" id="node4" href="$classPIDController.html#ae65c17f3d759a82c5eb53d38af950c05" title="Computes the PID control outputs for velocity and heading." alt="" coords="393,56,588,83"/>
+<area shape="rect" id="node5" href="$classPIDController.html#abd2f4f746da81791a12444afd98fa642" title="Retrieves the time step (deltaT)." alt="" coords="388,107,593,133"/>
+<area shape="rect" id="node6" href="$classRobotModel.html#ab315e9f1a0c653dcde93c05e081183b1" title="Get the current heading of the robot in radians." alt="" coords="399,157,582,184"/>
+<area shape="rect" id="node7" href="$classRobotModel.html#a0d8acd3983d9fd1cb174ff6e3bab84dd" title="Get the current speed of the robot in meters per second (m/s)." alt="" coords="406,208,575,235"/>
+<area shape="rect" id="node8" href="$classRobotModel.html#acd6775744c75cdb1cf6c650c8de9ebac" title="Retrieves the current state of the robot model." alt="" coords="409,259,572,285"/>
+<area shape="rect" id="node9" href="$classRobotModel.html#a7078da2b58c21a3c29aafe78dfa065b5" title="Simulates the robot model&#39;s motion based on PID controller outputs." alt="" coords="407,310,574,351"/>
+<area shape="rect" id="node10" href="$classRobotModel.html#acef0f9f946fdaf780e881d9a91f1db5a" title="Updates the state of the robot model based on steering angle and time step." alt="" coords="397,376,584,403"/>
+</map>
