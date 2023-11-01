@@ -32,6 +32,58 @@ The activity diagram for the program workflow is as follows:
 ## Project video presentations
 - [Project Video Phase 0](https://drive.google.com/drive/folders/1XxFNVwzcc_FQ3LxvkB0sat8C8gZQSr4t?usp=share_link)
 - [Project Video Phase 1](https://drive.google.com/drive/folders/1FB--a8MC04ID6z6_YX9fl1sfQi5uFUO-?usp=drive_link)
+- [Project Video Phase 2](https://drive.google.com/drive/folders/1qNmXCD-yAGQrZ4IVPWmvRYi_JeRbLDu3?usp=sharing)
+
+## Implementation Results
+The implementation of the PID controller for Ackermann kinematic model has been implemented, and the input values converge to the expected. However it is observed that there is an overshoot of the PID controller because of which there is a condition of the overshoot of the output values.
+```
+Enter the target heading (in radians): 0.8
+Enter the target velocity: 20
+getspeed11.2817Iteration 2
+Velocity Error: 14.0482
+Heading Error: -184.571heading: -396.297
+Speed: 72.8368
+**********OUTPUTS***************
+Inner steering angle: -1.07072
+Outer steering angle: -0.44126
+Inner wheel velocity: 29.8832
+Outer wheel velocity: 115.79
+********************************
+getspeed5.95179Iteration 3
+Velocity Error: -52.8368
+Heading Error: 442.133heading: -628.873
+Speed: 71.1986
+**********OUTPUTS***************
+Inner steering angle: -0.228836
+Outer steering angle: -0.352
+Inner wheel velocity: 87.1392
+Outer wheel velocity: 55.2581
+********************************
+getspeed72.8368Iteration 4
+Velocity Error: -51.1986
+Heading Error: 674.71heading: -646.219
+Speed: 0.714755
+**********OUTPUTS***************
+Inner steering angle: -1.26727
+Outer steering angle: 0.67179
+Inner wheel velocity: 0.474102
+Outer wheel velocity: -1.90361
+********************************
+getspeed71.1986Iteration 5
+Velocity Error: 19.2852
+Heading Error: 692.056heading: -5647.96
+Speed: 363.045
+**********OUTPUTS***************
+Inner steering angle: -0.553819
+Outer steering angle: -1.52448
+Inner wheel velocity: 705.859
+Outer wheel velocity: 20.2317
+```
+As seen above the velocity and heading errors are reducing and then overshooting to the negative plane, but again overshoot to counter effect to the positive plane. The overall trajectory is still found to reduce the error between the current and desired trajectories of the robot. Since, all the tests are passing we can safely conclude that the program is working, and needs tuning of the PID gains to optimize the output for the robot.
+
+
+## Future scope
+Tuning of the PID controller to converge faster to the expected trajectory of the robot, which is planned for the future scope of the project.
 
 ## Compiling and running via command line:
 ```
@@ -48,6 +100,8 @@ The activity diagram for the program workflow is as follows:
   Enter target heading in degrees
   Enter target speed in m/s
 ```
+
+
 
 ## Generating the documentation
 ```
@@ -66,6 +120,21 @@ The activity diagram for the program workflow is as follows:
   cmake --build build/ --clean-first --target all test_coverage
 # Open a web browser to browse the test coverage report:
   open build/test_coverage/index.html
+```
+## Checking for cppcheck and cpplint
+```
+# if you need to install cppcheck, do
+sudo apt install cppcheck
+
+# run in the top-level project directory (eg., in cpp-boilerplate-v2/)
+cppcheck --enable=all --std=c++11 -I include/ --suppress=missingInclude $( find . -name *.cpp | grep -vE -e "^./build/" )
+```
+```
+# You may need to install cpplint:
+sudo apt install cpplint
+
+# run in the top-level project directory (eg., in cpp-boilerplate-v2/)
+cpplint --filter="-legal/copyright" $( find . -name *.cpp | grep -vE -e "^./build/" )
 ```
 
 ## Google style code verification
