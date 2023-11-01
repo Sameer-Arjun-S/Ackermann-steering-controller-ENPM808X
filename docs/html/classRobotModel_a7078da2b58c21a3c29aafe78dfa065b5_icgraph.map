@@ -1,0 +1,5 @@
+<map id="RobotModel::Simulate_robot_model" name="RobotModel::Simulate_robot_model">
+<area shape="rect" id="node1" title="Simulates the robot model&#39;s motion based on PID controller outputs." alt="" coords="385,5,552,47"/>
+<area shape="rect" id="node2" href="$classRobotSimulation.html#a16464f5b267cc790c7ca00897ca68afe" title="Runs the robot simulation control loop." alt="" coords="108,13,337,39"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="The main function that runs the robot simulation." alt="" coords="5,13,60,39"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="include/RobotModel.hpp" name="include/RobotModel.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="96,5,275,32"/>
+<area shape="rect" id="node2" href="$RobotModel_8cpp.html" title="Implementation of a class to represent a robot model." alt="" coords="5,80,160,107"/>
+<area shape="rect" id="node3" href="$RobotSimulation_8hpp.html" title=" " alt="" coords="185,80,394,107"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="Contains the maiin function for the program." alt="" coords="147,155,258,181"/>
+<area shape="rect" id="node5" href="$RobotSimulation_8cpp.html" title="Represents a class for simulating a robot&#39;s control system." alt="" coords="282,155,467,181"/>
+</map>

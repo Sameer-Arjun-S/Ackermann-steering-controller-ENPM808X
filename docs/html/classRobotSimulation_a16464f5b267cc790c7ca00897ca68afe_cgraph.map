@@ -1,0 +1,11 @@
+<map id="RobotSimulation::runSimulation" name="RobotSimulation::runSimulation">
+<area shape="rect" id="node1" title="Runs the robot simulation control loop." alt="" coords="5,183,235,209"/>
+<area shape="rect" id="node2" href="$classPIDController.html#a522ed733f2d81b815b8b2b1ca69d817e" title="Computes and stores the velocity and heading errors." alt="" coords="283,5,493,32"/>
+<area shape="rect" id="node3" href="$classPIDController.html#ae65c17f3d759a82c5eb53d38af950c05" title="Computes the PID control outputs for velocity and heading." alt="" coords="291,56,485,83"/>
+<area shape="rect" id="node4" href="$classPIDController.html#abd2f4f746da81791a12444afd98fa642" title="Retrieves the time step (deltaT)." alt="" coords="285,107,491,133"/>
+<area shape="rect" id="node5" href="$classRobotModel.html#ab315e9f1a0c653dcde93c05e081183b1" title="Get the current heading of the robot in radians." alt="" coords="297,157,479,184"/>
+<area shape="rect" id="node6" href="$classRobotModel.html#a0d8acd3983d9fd1cb174ff6e3bab84dd" title="Get the current speed of the robot in meters per second (m/s)." alt="" coords="303,208,473,235"/>
+<area shape="rect" id="node7" href="$classRobotModel.html#acd6775744c75cdb1cf6c650c8de9ebac" title="Retrieves the current state of the robot model." alt="" coords="307,259,469,285"/>
+<area shape="rect" id="node8" href="$classRobotModel.html#a7078da2b58c21a3c29aafe78dfa065b5" title="Simulates the robot model&#39;s motion based on PID controller outputs." alt="" coords="305,310,471,351"/>
+<area shape="rect" id="node9" href="$classRobotModel.html#acef0f9f946fdaf780e881d9a91f1db5a" title="Updates the state of the robot model based on steering angle and time step." alt="" coords="295,376,481,403"/>
+</map>
